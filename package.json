@@ -4,11 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-<<<<<<< HEAD
     "start": "vite",
-=======
     "dev": "vite",
->>>>>>> 864923056b264740b19c0ae2d85b7f77735dc4ab
     "build": "vite build --base=/blended-products/",
     "preview": "vite preview"
   },
