@@ -2,4 +2,9 @@
 
 export const STORAGE_KEYS = {};
 
-export const currentPage = 1;
+export const state = {
+  category: null,
+  currentPage: null,
+  totalProducts: null,
+  productsPerPage: 12,
+};

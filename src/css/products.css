@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
+  margin-bottom: 30px;
 }
 
 .products__item {
@@ -25,7 +26,7 @@
   height: 200px;
   margin-bottom: 1rem;
 
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px;
   transition: transform 0.3s ease;
 

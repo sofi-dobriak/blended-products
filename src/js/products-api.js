@@ -1,7 +1,7 @@
 // Функції для роботи з бекендом
 
 import axios from 'axios';
-import { currentPage } from './constants';
+import { state } from './constants';
 
 axios.defaults.baseURL = 'https://dummyjson.com/products/';
 
@@ -15,21 +15,21 @@ export async function getProductsCategories() {
 }
 
 export async function getProducts() {
-  const skip = (currentPage - 1) * 12;
-
+  const skip = (state.currentPage - 1) * state.productsPerPage;
   const url = `?limit=12&skip=${skip}`;
 
   const response = await axios.get(url);
+  state.totalProducts = response.data.total;
 
   return response.data.products;
 }
 
 export async function getProductsByCategory(category) {
-  const END_POINT = 'category';
-  const skip = (currentPage - 1) * 12;
-  const url = `${END_POINT}/${category}?limit=12&skip=${skip}`;
+  const skip = (state.currentPage - 1) * 12;
+  const url = `category/${category}?limit=12&skip=${skip}`;
 
   const response = await axios.get(url);
+  state.totalProducts = response.data.total;
 
   return response.data.products;
 }
