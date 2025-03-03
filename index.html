@@ -7,9 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home page</title>
   <script type="module" crossorigin src="/blended-products/index.js"></script>
-  <link rel="modulepreload" crossorigin href="/blended-products/assets/styles-BK7AYJoX.js">
-  <link rel="modulepreload" crossorigin href="/blended-products/assets/vendor-N5iQpiFS.js">
-  <link rel="stylesheet" crossorigin href="/blended-products/assets/styles-CwHyMCDG.css">
+  <link rel="modulepreload" crossorigin href="/blended-products/assets/styles-CWKrgFVC.js">
+  <link rel="modulepreload" crossorigin href="/blended-products/assets/vendor-Cbhu4xvy.js">
+  <link rel="stylesheet" crossorigin href="/blended-products/assets/styles-BfRVevj-.css">
+  <link rel="stylesheet" crossorigin href="/blended-products/assets/vendor-DnveWo0P.css">
 </head>
 
 <body>
@@ -22,18 +23,8 @@
     </a>
 
     <form class="search-form">
-      <input
-        class="search-form__input"
-        type="text"
-        name="searchValue"
-        placeholder="Enter product name"
-      />
-      <button
-        type="button"
-        class="search-form__btn-clear"
-        aria-label="Clear search"
-      >
-        ×
+      <input class="search-form__input" type="text" name="searchValue" placeholder="Enter product name" />
+      <button type="button" class="search-form__btn-clear" aria-label="Clear search">×
       </button>
       <button class="search-form__btn" type="submit">Search</button>
     </form>
@@ -62,13 +53,12 @@
   </div>
 </header>
 
-
-  <!-- work work work -->
   <main>
     <section class="section">
       <div class="container">
         <ul class="categories"></ul>
         <ul class="products"></ul>
+        <button class="load-more__btn hide js-load-more-button" type="submit">Load more</button>
         <div class="not-found">
           <div class="not-found__icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
@@ -79,8 +69,7 @@
           </div>
           <h2 class="not-found__title">No Products Found</h2>
           <p class="not-found__description">
-            We couldn't find any items matching your search.<br />Please try
-            different keywords.
+            We couldn't find any items matching your search.<br />Please try different keywords.
           </p>
         </div>
       </div>
