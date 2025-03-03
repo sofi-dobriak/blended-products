@@ -7,4 +7,5 @@ export const state = {
   currentPage: null,
   totalProducts: null,
   productsPerPage: 12,
+  searchQuery: null,
 };

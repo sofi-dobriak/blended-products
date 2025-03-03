@@ -25,11 +25,27 @@ export async function getProducts() {
 }
 
 export async function getProductsByCategory(category) {
-  const skip = (state.currentPage - 1) * 12;
+  const skip = (state.currentPage - 1) * state.productsPerPage;
   const url = `category/${category}?limit=12&skip=${skip}`;
 
   const response = await axios.get(url);
   state.totalProducts = response.data.total;
 
+  return response.data.products;
+}
+
+export async function getProductByID(id) {
+  const url = `${id}`;
+
+  const response = await axios.get(url);
+
+  return response.data;
+}
+
+export async function getProductByUserValue(userValue) {
+  // const skip = (state.currentPage - 1) * state.productsPerPage;
+  const url = `search?q=${userValue}`;
+
+  const response = await axios.get(url);
   return response.data.products;
 }
