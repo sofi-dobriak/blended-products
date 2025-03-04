@@ -43,7 +43,6 @@ export async function getProductByID(id) {
 }
 
 export async function getProductByUserValue(userValue) {
-  // const skip = (state.currentPage - 1) * state.productsPerPage;
   const url = `search?q=${userValue}`;
 
   const response = await axios.get(url);

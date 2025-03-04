@@ -2,6 +2,7 @@
 import { refs } from './js/refs';
 import {
   onCategoryButtonClick,
+  onClearButtonClick,
   onDOMContentLoaded,
   onLoadMoreButtonClick,
   onProductItemClick,
@@ -13,3 +14,4 @@ refs.categoriesList.addEventListener('click', onCategoryButtonClick);
 refs.productsList.addEventListener('click', onProductItemClick);
 refs.loadMoreButton.addEventListener('click', onLoadMoreButtonClick);
 refs.searchForm.addEventListener('submit', onSearchFormSubmit);
+refs.searchBtnClear.addEventListener('click', onClearButtonClick);

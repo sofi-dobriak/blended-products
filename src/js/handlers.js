@@ -22,6 +22,7 @@ import {
   showNotFoundMessage,
   showLoadMoreButton,
   hideLoadMoreButton,
+  hideNotFoundMessage,
 } from './helpers';
 import { state } from './constants';
 
@@ -71,6 +72,7 @@ export async function onCategoryButtonClick(e) {
     }
 
     renderProductsListByCategory(markup);
+    hideNotFoundMessage();
 
     if (state.totalProducts > state.productsPerPage) {
       showLoadMoreButton();
@@ -85,7 +87,6 @@ export async function onCategoryButtonClick(e) {
 export async function onLoadMoreButtonClick() {
   let products = [];
   let totalProducts = 0;
-
   state.currentPage += 1;
 
   try {
@@ -122,14 +123,18 @@ export async function onSearchFormSubmit(e) {
 
   state.searchQuery = userValue;
 
-  // state.currentPage = 1;
-
   try {
     const products = await getProductByUserValue(userValue);
-
     const markup = renderSearchProducts(products);
+
     refs.productsList.innerHTML = markup;
     searchInput.value = '';
+
+    if (!markup) {
+      showNotFoundMessage();
+    } else {
+      hideNotFoundMessage();
+    }
 
     hideLoadMoreButton();
   } catch (error) {
@@ -160,5 +165,22 @@ export async function onProductItemClick(e) {
     });
 
     console.log(error);
+  }
+}
+
+export async function onClearButtonClick(e) {
+  const searchForm = e.target.closest('.search-form');
+  const searchInput = searchForm.elements.searchValue;
+
+  searchInput.value = '';
+
+  try {
+    const products = await getProducts();
+    renderProductsListByCategory(products);
+  } catch (error) {
+    iziToast.error({
+      message: 'Something went wrong. Please, try later',
+    });
+    console.log('Error in onSearchFormSubmit:', error);
   }
 }

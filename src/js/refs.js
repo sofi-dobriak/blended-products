@@ -2,6 +2,7 @@
 
 export const refs = {
   searchForm: document.querySelector('.search-form'),
+  searchBtnClear: document.querySelector('.js-btn-clear'),
   categoriesList: document.querySelector('.categories'),
   productsList: document.querySelector('.products'),
   loadMoreButton: document.querySelector('.js-load-more-button'),
