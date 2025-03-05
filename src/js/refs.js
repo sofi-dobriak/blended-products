@@ -11,4 +11,5 @@ export const refs = {
   modalBackdrop: document.querySelector('.js-modal-backdrop'),
   closeButton: document.querySelector('.js-modal-close-button'),
   modalProductContainer: document.querySelector('.js-modal-product'),
+  dataWishlistCount: document.querySelector('[data-wishlist-count]'),
 };

@@ -1,6 +1,10 @@
 //Константи
 
-export const STORAGE_KEYS = {};
+import { saveToLS } from './helpers';
+
+export const STORAGE_KEYS = {
+  WISH_LIST_STORAGE_KEY: 'wishlist',
+};
 
 export const state = {
   category: null,

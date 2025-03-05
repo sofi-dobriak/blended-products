@@ -1,5 +1,6 @@
 //Описана робота модалки - відкриття закриття і все що з модалкою повʼязано
 
+import { updateWishList } from './handlers';
 import { refs } from './refs';
 
 export function openModal() {
@@ -7,6 +8,8 @@ export function openModal() {
 
   refs.closeButton.addEventListener('click', closeModal);
   refs.modalBackdrop.addEventListener('click', closeModal);
+
+  updateWishList();
 }
 
 export function closeModal(e) {

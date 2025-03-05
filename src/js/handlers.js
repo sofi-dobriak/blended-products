@@ -23,8 +23,10 @@ import {
   showLoadMoreButton,
   hideLoadMoreButton,
   hideNotFoundMessage,
+  saveToLS,
+  loadFromLS,
 } from './helpers';
-import { state } from './constants';
+import { state, STORAGE_KEYS } from './constants';
 
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
@@ -33,6 +35,7 @@ import { refs } from './refs';
 import { openModal } from './modal';
 
 export async function onDOMContentLoaded() {
+  updateWishlistCount();
   try {
     const categories = await getProductsCategories();
     renderCategoriesList(categories);
@@ -153,9 +156,7 @@ export async function onProductItemClick(e) {
 
   try {
     const product = await getProductByID(cardID);
-
     const markup = renderModalProduct(product);
-
     refs.modalProductContainer.innerHTML = markup;
 
     openModal();
@@ -182,5 +183,56 @@ export async function onClearButtonClick(e) {
       message: 'Something went wrong. Please, try later',
     });
     console.log('Error in onSearchFormSubmit:', error);
+  }
+}
+
+export function onWishListButtonClick() {
+  const modalProductContent = document.querySelector('.modal-product__content');
+  if (!modalProductContent) return;
+
+  const productID = modalProductContent.dataset.id;
+  let wishlist = loadFromLS(STORAGE_KEYS.WISH_LIST_STORAGE_KEY);
+
+  const productsIndex = wishlist.indexOf(productID);
+
+  const wishListButton = document.querySelector(`.js-wishlist-button`);
+  if (!wishListButton) return;
+
+  if (productsIndex === -1) {
+    wishlist.push(productID);
+    wishListButton.textContent = 'Remove from wishlist';
+  } else {
+    wishlist.splice(productsIndex, 1);
+    wishListButton.textContent = 'Add to wishlist';
+  }
+
+  saveToLS(STORAGE_KEYS.WISH_LIST_STORAGE_KEY, wishlist);
+  updateWishlistCount();
+}
+
+export function updateWishList() {
+  const modalProductContent = document.querySelector('.modal-product__content');
+  if (!modalProductContent) return;
+
+  const productID = modalProductContent.dataset.id;
+  let wishlist = loadFromLS(STORAGE_KEYS.WISH_LIST_STORAGE_KEY);
+
+  const wishListButton = document.querySelector(`.js-wishlist-button`);
+  if (!wishListButton) return;
+
+  wishListButton.textContent = wishlist.includes(productID)
+    ? 'Remove from Wishlist'
+    : 'Add to Wishlist';
+
+  updateWishlistCount();
+}
+
+function updateWishlistCount() {
+  const wishlist = loadFromLS(STORAGE_KEYS.WISH_LIST_STORAGE_KEY);
+
+  if (refs.dataWishlistCount) {
+    refs.dataWishlistCount.textContent = wishlist.length;
+  } else {
+    console.error('refs.dataWishlistCount is not defined');
   }
 }
