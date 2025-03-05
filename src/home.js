@@ -8,6 +8,7 @@ import {
   onProductItemClick,
   onSearchFormSubmit,
   onWishListButtonClick,
+  onCardButtonClick,
 } from './js/handlers';
 
 document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
@@ -19,5 +20,9 @@ refs.searchBtnClear.addEventListener('click', onClearButtonClick);
 refs.modalWindow.addEventListener('click', e => {
   if (e.target.classList.contains('js-wishlist-button')) {
     onWishListButtonClick();
+  }
+
+  if (e.target.classList.contains('js-card-button')) {
+    onCardButtonClick();
   }
 });

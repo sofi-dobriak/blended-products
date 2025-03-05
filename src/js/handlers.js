@@ -36,6 +36,8 @@ import { openModal } from './modal';
 
 export async function onDOMContentLoaded() {
   updateWishlistCount();
+  updateCardCount();
+
   try {
     const categories = await getProductsCategories();
     renderCategoriesList(categories);
@@ -234,5 +236,56 @@ function updateWishlistCount() {
     refs.dataWishlistCount.textContent = wishlist.length;
   } else {
     console.error('refs.dataWishlistCount is not defined');
+  }
+}
+
+export function onCardButtonClick() {
+  const modalProductContent = document.querySelector('.modal-product__content');
+  if (!modalProductContent) return;
+
+  const productID = modalProductContent.dataset.id;
+  let card = loadFromLS(STORAGE_KEYS.CARD_LIST_STORAGE_KEY);
+
+  const productsIndex = card.indexOf(productID);
+
+  const cardButton = document.querySelector(`.js-card-button`);
+  if (!cardButton) return;
+
+  if (productsIndex === -1) {
+    card.push(productID);
+    cardButton.textContent = 'Remove from cart';
+  } else {
+    card.splice(productsIndex, 1);
+    cardButton.textContent = 'Add to cart';
+  }
+
+  saveToLS(STORAGE_KEYS.CARD_LIST_STORAGE_KEY, card);
+  updateCardCount();
+}
+
+export function updateCardList() {
+  const modalProductContent = document.querySelector('.modal-product__content');
+  if (!modalProductContent) return;
+
+  const productID = modalProductContent.dataset.id;
+  let card = loadFromLS(STORAGE_KEYS.CARD_LIST_STORAGE_KEY);
+
+  const cardButton = document.querySelector(`.js-card-button`);
+  if (!cardButton) return;
+
+  cardButton.textContent = card.includes(productID)
+    ? 'Remove from cart'
+    : 'Add to cart';
+
+  updateCardCount();
+}
+
+function updateCardCount() {
+  const card = loadFromLS(STORAGE_KEYS.CARD_LIST_STORAGE_KEY);
+
+  if (refs.dataCardCount) {
+    refs.dataCardCount.textContent = card.length;
+  } else {
+    console.error('refs.dataCardCount is not defined');
   }
 }

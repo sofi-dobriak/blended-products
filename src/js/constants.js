@@ -1,9 +1,8 @@
 //Константи
 
-import { saveToLS } from './helpers';
-
 export const STORAGE_KEYS = {
   WISH_LIST_STORAGE_KEY: 'wishlist',
+  CARD_LIST_STORAGE_KEY: 'cart',
 };
 
 export const state = {
