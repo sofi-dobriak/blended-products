@@ -10,6 +10,7 @@ import {
   onWishListButtonClick,
   onCardButtonClick,
   perFormSearch,
+  onBuyProductsButton,
 } from './js/handlers';
 import { loadFromSS } from './js/storage';
 import './js/constants';
@@ -42,3 +43,4 @@ window.addEventListener('load', () => {
     perFormSearch(searchQuery);
   }
 });
+refs.cardBuyProductsButton.addEventListener('click', onBuyProductsButton);

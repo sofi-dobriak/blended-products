@@ -188,7 +188,6 @@ export async function perFormSearch(query) {
     const products = await getProductByUserValue(query);
     const markup = renderSearchProducts(products);
 
-    refs.productsList.innerHTML = '';
     refs.productsList.innerHTML = markup;
 
     if (!markup) {
