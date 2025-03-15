@@ -174,7 +174,7 @@ export async function onSearchFormSubmit(e) {
 
   try {
     saveToSS(STORAGE_KEYS.USER_VALUE_SESSION_STORAGE_KEY, userValue);
-    window.location.href = '/index.html';
+    window.location.href = './index.html';
   } catch (error) {
     iziToast.error({
       message: 'Something went wrong. Please, try later',
@@ -235,7 +235,7 @@ export async function onClearButtonClick(e) {
   searchInput.value = '';
 
   try {
-    window.location.href = '/index.html';
+    window.location.href = './index.html';
 
     const products = await getProducts();
     renderProductsListByCategory(products);
