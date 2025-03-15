@@ -13,4 +13,8 @@ export const refs = {
   modalProductContainer: document.querySelector('.js-modal-product'),
   dataWishlistCount: document.querySelector('[data-wishlist-count]'),
   dataCardCount: document.querySelector('[data-cart-count]'),
+  cardTotalItems: document.querySelector('.js-cart-total-items'),
+  cardTotalPrice: document.querySelector('.js-cart-total-price'),
+  cardBuyProductsButton: document.querySelector('.js-buy-products'),
+  backToTopButton: document.querySelector('.js-back-to-top'),
 };

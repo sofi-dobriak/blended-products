@@ -24,21 +24,8 @@ export function showLoadMoreButton() {
 }
 
 export function hideLoadMoreButton() {
-  refs.loadMoreButton.classList.add('hide');
-}
+  const loadMoreButton = document.querySelector('.js-load-more-button');
+  if (!loadMoreButton) return;
 
-export function saveToLS(key, value) {
-  const data = JSON.stringify(value);
-  localStorage.setItem(key, data);
-}
-
-export function loadFromLS(key) {
-  const data = localStorage.getItem(key);
-
-  try {
-    const parseData = JSON.parse(data);
-    return Array.isArray(parseData) ? parseData : [];
-  } catch {
-    return [];
-  }
+  loadMoreButton.classList.add('hide');
 }
