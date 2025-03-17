@@ -1,4 +1,4 @@
-🛒 Online Store (Practice Project)
+🛒 Online Store (Educational Mini-Project)
 
 📌 **Description**
 
