@@ -38,3 +38,8 @@ Optimized for tablets and desktops. No mobile version is available.
 - JavaScript
 - API for product data
 - HTML/CSS (provided by mentor)
+
+🧾 **Libraries**
+
+- axios
+- iziTost
