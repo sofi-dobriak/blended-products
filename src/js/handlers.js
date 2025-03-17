@@ -372,8 +372,11 @@ export function onCardButtonClick() {
 
   saveToLS(STORAGE_KEYS.CARD_LIST_STORAGE_KEY, cardList);
   updateCardCount();
-  updateCardTotalItems();
-  updateCardTotalPrice();
+
+  if (refs.cardTotalItems || refs.cardTotalPrice) {
+    updateCardTotalItems();
+    updateCardTotalPrice();
+  }
 }
 
 export function updateCardList() {

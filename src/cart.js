@@ -26,5 +26,10 @@ refs.modalWindow.addEventListener('click', e => {
   if (e.target.classList.contains('modal-product__buy-btn')) {
     onBuyProductsButton();
   }
+
+  if (e.target.classList.contains('js-buy-products')) {
+    onBuyProductsButton();
+  }
 });
+
 refs.cardBuyProductsButton.addEventListener('click', onBuyProductsButton);

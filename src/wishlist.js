@@ -1,4 +1,5 @@
 //Логіка сторінки Wishlist
+
 import { refs } from './js/refs';
 import {
   onBuyProductsButton,
@@ -24,6 +25,10 @@ refs.modalWindow.addEventListener('click', e => {
   }
 
   if (e.target.classList.contains('modal-product__buy-btn')) {
+    onBuyProductsButton();
+  }
+
+  if (e.target.classList.contains('js-buy-products')) {
     onBuyProductsButton();
   }
 });

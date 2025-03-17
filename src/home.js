@@ -1,4 +1,5 @@
 //Логіка сторінки Home
+
 import { refs } from './js/refs';
 import {
   onCategoryButtonClick,
@@ -34,6 +35,10 @@ refs.modalWindow.addEventListener('click', e => {
   if (e.target.classList.contains('modal-product__buy-btn')) {
     onBuyProductsButton();
   }
+
+  if (e.target.classList.contains('js-buy-products')) {
+    onBuyProductsButton();
+  }
 });
 
 window.addEventListener('load', () => {
@@ -43,4 +48,3 @@ window.addEventListener('load', () => {
     perFormSearch(searchQuery);
   }
 });
-refs.cardBuyProductsButton.addEventListener('click', onBuyProductsButton);

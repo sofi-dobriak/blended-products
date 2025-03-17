@@ -80,7 +80,7 @@
   transition: all 0.3s ease;
 
   &:hover {
-    background: #e05a00;
+    background-color: #e05a00;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 107, 10, 0.2);
   }
@@ -88,7 +88,6 @@
 
 .cart-summary__hint {
   margin: 1rem 0;
-
   color: #94a3b8;
   font-size: 0.9rem;
   text-align: center;
