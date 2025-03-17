@@ -1,10 +1,13 @@
 🛒 Online Store (Practice Project)
 
-📌 **Description** This is a JavaScript practice project — an online store that
-fetches products from an API and supports cart and wishlist functionality.
+📌 **Description**
 
-✅ **Responsive Design:** Optimized for tablets and desktops. No mobile version
-is available.
+This is a JavaScript practice project — an online store that fetches products
+from an API and supports cart and wishlist functionality.
+
+✅ **Responsive Design:**
+
+Optimized for tablets and desktops. No mobile version is available.
 
 ✨ **Features**
 
