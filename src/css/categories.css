@@ -6,6 +6,10 @@
   margin-bottom: 3rem;
 }
 
+.show-categories {
+  display: none;
+}
+
 .categories__item {
   list-style: none;
   transition: transform 0.2s ease;
